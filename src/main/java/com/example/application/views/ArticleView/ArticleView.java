@@ -1,5 +1,6 @@
 package com.example.application.views.ArticleView;
 
+import com.example.application.repository.ArticleDao;
 import com.example.application.services.ArticleService;
 import com.example.application.views.MainLayout;
 import com.vaadin.flow.component.button.Button;
@@ -25,6 +26,8 @@ public class ArticleView extends VerticalLayout {
 
     private Button create;
 
+    public ArticleService articleService = new ArticleService();
+
     public ArticleView() {
         setSpacing(false);
 
@@ -33,7 +36,10 @@ public class ArticleView extends VerticalLayout {
         create = new Button("Créer");
 
         create.addClickListener(buttonClickEvent -> {
+            articleService.createNewArticle(name.getValue(), price.getValue().floatValue());
             Notification.show("Article créé");
+            name.setValue("");
+            price.setValue(0.0);
         });
 
         add(name, price, create);

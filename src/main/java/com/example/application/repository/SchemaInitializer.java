@@ -22,6 +22,31 @@ public class SchemaInitializer {
                 " nom VARCHAR NOT NULL, " +
                 " prix FLOAT " +
                 ")");
+        } catch (Exception e) {
+
+        }
+
+        try (var statement = connection.createStatement()) {
+            statement.execute("CREATE TABLE client (" +
+                    " id INT NOT NULL, " +
+                    " nom VARCHAR NOT NULL, " +
+                    " prenom VARCHAR, " +
+                    " numtel BIGINT " +
+                    ")");
+        } catch (Exception e) {
+
+        }
+
+        try (var statement = connection.createStatement()) {
+            statement.execute("CREATE TABLE facture (" +
+                    " id INT NOT NULL, " +
+                    " nameArticle VARCHAR, " +
+                    " totalPrice FLOAT, " +
+                    " nameClient VARCHAR, " +
+                    " qte INT " +
+                    ")");
+        } catch (Exception e) {
+
         }
     }
 }

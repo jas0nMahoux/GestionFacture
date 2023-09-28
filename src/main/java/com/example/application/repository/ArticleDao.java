@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class ArticleRepository {
+public class ArticleDao {
 
     public ArrayList<Article> findAll() {
         var connexion = ConnectionHolder.INSTANCE.getConnection();
@@ -19,14 +19,24 @@ public class ArticleRepository {
         }
     }
 
+    public void insertArticle(String nomArticle, float prixArticle) {
+        var connection = ConnectionHolder.INSTANCE.getConnection();
+        try (var statement = connection.prepareStatement("INSERT INTO article ( ID, NOM, PRIX) VALUES (0, ?, ?)")) {
+            statement.setString(1, nomArticle);
+            statement.setFloat(2, prixArticle);
+            statement.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     private ArrayList<Article> processResultSet(ResultSet result) throws SQLException {
         ArrayList<Article> listeArticle = new ArrayList<>();
         while (result.next()) {
-            //var id = result.getInt(1);
-            var name = result.getString(1);
-            var price = result.getInt(2);
+            var nom = result.getString(2);
+            var prix = result.getFloat(3);
             Article article = new Article.Builder()
-                    .setId(0).setNom(name).setPrix(price).build();
+                    .setNom(nom).setPrix(prix).setId(3).build();
             listeArticle.add(article);
         }
         return listeArticle;

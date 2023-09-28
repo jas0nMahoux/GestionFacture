@@ -9,7 +9,7 @@ import java.sql.SQLException;
  */
 public enum ConnectionHolder {
     INSTANCE;
-    private static final String URL = "jdbc:h2:~/test";
+    private static final String URL = "jdbc:h2:tcp://localhost/~/test";
     private final Connection connection;
 
     ConnectionHolder() {

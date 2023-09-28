@@ -2,61 +2,61 @@ package com.example.application.model;
 
 public class Facture {
 
-    private LigneArticle ligneArticle;
+    private String nameArticle;
 
-    private double total;
+    private Float total;
 
-    private Client client;
+    private String clientName;
 
-    private Entreprise entreprise;
+    private int qte;
 
-    public Facture(LigneArticle ligneArticle, double total, Client client, Entreprise entreprise) {
-        this.ligneArticle = ligneArticle;
+
+    public Facture(String nameArticle, Float total, String clientName, int qte) {
+        this.nameArticle = nameArticle;
         this.total = total;
-        this.client = client;
-        this.entreprise = entreprise;
+        this.clientName = clientName;
+        this.qte = qte;
     }
 
-    public LigneArticle getLigneArticle() {
-        return ligneArticle;
+    public String getLigneArticle() {
+        return nameArticle;
     }
 
-    public void setLigneArticle(LigneArticle ligneArticle) {
-        this.ligneArticle = ligneArticle;
+    public void setNameArticle(String nameArticle) {
+        this.nameArticle = nameArticle;
     }
 
-    public double getTotal() {
+    public Float getTotal() {
         return total;
     }
 
-    public void setTotal(double total) {
+    public void setTotal(Float total) {
         this.total = total;
     }
 
-    public Client getClient() {
-        return client;
+    public String getClientName() {
+        return clientName;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    public void setClientName(String clientName) {
+        this.clientName = clientName;
     }
 
-    public Entreprise getEntreprise() {
+    /*public Entreprise getEntreprise() {
         return entreprise;
     }
 
     public void setEntreprise(Entreprise entreprise) {
         this.entreprise = entreprise;
-    }
+    }*/
 
 
     @Override
     public String toString() {
         return "Facture{" +
-                "ligneArticle=" + ligneArticle +
+                "nameArticle=" + nameArticle +
                 ", total=" + total +
-                ", client=" + client +
-                ", entreprise=" + entreprise +
+                ", clientName=" + clientName +
                 '}';
     }
 }

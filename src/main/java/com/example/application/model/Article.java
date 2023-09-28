@@ -1,7 +1,12 @@
 package com.example.application.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "article")
 public class Article {
 
+    @Id
     private int id;
 
     private String nom;
@@ -12,6 +17,10 @@ public class Article {
         this.id = builder.id;
         this.nom = builder.nom;
         this.prix = builder.prix;
+    }
+
+    public Article() {
+
     }
 
     public int getId() {
@@ -36,6 +45,14 @@ public class Article {
 
     public void setPrix(float prix) {
         this.prix = prix;
+    }
+
+    @Override
+    public String toString() {
+        return "Article{" +
+                "nom='" + nom + '\'' +
+                ", prix=" + prix +
+                '}';
     }
 
     public static class Builder {
