@@ -1,4 +1,4 @@
-package com.example.application.views.helloworld;
+package com.example.application.views.factureview;
 
 import com.example.application.views.MainLayout;
 import com.vaadin.flow.component.Key;
@@ -10,17 +10,24 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouteAlias;
 
-@PageTitle("Hello World")
-@Route(value = "hello", layout = MainLayout.class)
+@PageTitle("Créer une facture")
+@Route(value = "facture", layout = MainLayout.class)
 @RouteAlias(value = "", layout = MainLayout.class)
-public class HelloWorldView extends HorizontalLayout {
+public class FactureView extends HorizontalLayout {
 
     private TextField name;
     private Button sayHello;
 
-    public HelloWorldView() {
-        name = new TextField("Your name");
-        sayHello = new Button("Say hello");
+    private TextField client;
+    private Button choose;
+
+    public FactureView() {
+        name = new TextField("Article");
+        sayHello = new Button("Choisir");
+
+        client = new TextField("Client");
+        choose = new Button("Choisir");
+
         sayHello.addClickListener(e -> {
             Notification.show("Hello " + name.getValue());
         });
@@ -28,8 +35,9 @@ public class HelloWorldView extends HorizontalLayout {
 
         setMargin(true);
         setVerticalComponentAlignment(Alignment.END, name, sayHello);
+        setVerticalComponentAlignment(Alignment.END, client, choose);
 
-        add(name, sayHello);
+        add(name, sayHello, client, choose);
     }
 
 }

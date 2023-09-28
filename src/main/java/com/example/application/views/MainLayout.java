@@ -1,7 +1,9 @@
 package com.example.application.views;
 
-import com.example.application.views.about.AboutView;
-import com.example.application.views.helloworld.HelloWorldView;
+import com.example.application.views.ArticleView.AllArticleView;
+import com.example.application.views.ArticleView.ArticleView;
+import com.example.application.views.entrepriseView.EntrepriseView;
+import com.example.application.views.factureview.FactureView;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.html.Footer;
@@ -39,7 +41,7 @@ public class MainLayout extends AppLayout {
     }
 
     private void addDrawerContent() {
-        H1 appName = new H1("My App");
+        H1 appName = new H1("Gestion Facture");
         appName.addClassNames(LumoUtility.FontSize.LARGE, LumoUtility.Margin.NONE);
         Header header = new Header(appName);
 
@@ -51,15 +53,17 @@ public class MainLayout extends AppLayout {
     private SideNav createNavigation() {
         SideNav nav = new SideNav();
 
-        nav.addItem(new SideNavItem("Hello World", HelloWorldView.class, LineAwesomeIcon.GLOBE_SOLID.create()));
-        nav.addItem(new SideNavItem("About", AboutView.class, LineAwesomeIcon.FILE.create()));
+        nav.addItem(new SideNavItem("Créer une facture", FactureView.class, LineAwesomeIcon.GLOBE_SOLID.create()));
+        nav.addItem(new SideNavItem("Créer une entreprise", EntrepriseView.class, LineAwesomeIcon.FILE.create()));
+        nav.addItem(new SideNavItem("Créer un article", ArticleView.class, LineAwesomeIcon.CART_PLUS_SOLID.create()));
+        nav.addItem(new SideNavItem("Liste des articles", AllArticleView.class, LineAwesomeIcon.SHOPPING_CART_SOLID.create()));
+
 
         return nav;
     }
 
     private Footer createFooter() {
         Footer layout = new Footer();
-
         return layout;
     }
 
