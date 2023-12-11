@@ -9,12 +9,12 @@ import java.sql.SQLException;
  */
 public enum ConnectionHolder {
     INSTANCE;
-    private static final String URL = "jdbc:h2:tcp://localhost/~/test";
+    private static final String URL = "jdbc:postgresql://localhost:5432/GestionFacture";
     private final Connection connection;
 
     ConnectionHolder() {
         try {
-            this.connection = DriverManager.getConnection(URL, "sa", "");
+            this.connection = DriverManager.getConnection(URL, "postgres", "postgres");
             new SchemaInitializer(connection).initialize();
         } catch (SQLException e) {
             throw new RuntimeException(e);

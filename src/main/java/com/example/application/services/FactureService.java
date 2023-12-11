@@ -1,6 +1,5 @@
 package com.example.application.services;
 
-import com.example.application.model.Client;
 import com.example.application.model.Facture;
 import com.example.application.repository.FactureDao;
 
