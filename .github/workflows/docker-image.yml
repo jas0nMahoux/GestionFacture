@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag gestion-facture:latest
+      run: docker build . --file Dockerfile --tag jasonmahoux/gestion-facture-jmx:latest_1
