@@ -9,4 +9,4 @@ RUN mvn clean package -DskipTests
 
 FROM openjdk:11-jre-slim
 
-CMD ["java", "-jar", "myapp-1.0-SNAPSHOT.jar"]
+CMD ["java", "-jar", "/*.jar"]
