@@ -8,7 +8,5 @@ COPY src ./src
 RUN mvn clean package -DskipTests
 
 FROM openjdk:11-jre-slim
-WORKDIR /
-COPY - from=build /app/target/my-application.jar .
 
-CMD ["java", "-jar", "my-application.jar"]
+CMD ["java", "-jar", "myapp-1.0-SNAPSHOT.jar"]
