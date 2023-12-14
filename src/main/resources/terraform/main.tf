@@ -6,6 +6,8 @@
 // terraform apply to create all the resources
 // terraform destroy to delete all the resources created
 
+// TODO frontDoor with the load balancer
+
 /*
 * Resource 1
 */
